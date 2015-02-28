@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:09:03 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 14:25:25 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 15:46:25 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int add_square(t_game *game, int y, int x)
 
 int check_game(t_game *game, int y, int x)
 {
-    if (!y && !x)
+    if (y == 3 && x == 3)
         game->flag = TRUE;
     if (!game->game[y][x].val)
         game->flag = FALSE;
