@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 18:32:41 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/02/28 19:07:13 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 19:13:13 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	_game_error_handle(void)
 {
-	ft_putstr_fd("Game_2048: Error:", STDERR_FILENO);
+	ft_putstr_fd("Game_2048: Error: ", STDERR_FILENO);
 }
 
 void		game_error_handle(int argc, char **argv, char **envp)

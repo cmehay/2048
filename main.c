@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 18:43:59 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 19:10:32 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,12 @@ static void key_input(t_game *game)
             boucle(game, play_right, BACKWARD);
         boucle(game, check_game, BACKWARD);
         if (game->flag)
-            break ;
+            return ;
         if (game->has_move)
             boucle(game, add_square, FORWARD);
         win_draw(game);
     }
+    game->flag = 0;
 }
 
 int main(int argc, char **argv, char **envp)
@@ -95,6 +96,8 @@ int main(int argc, char **argv, char **envp)
     signal_handle();
     win_draw(&game);
     key_input(&game);
+    if (game.flag)
+        you_loose();
     endwin();
     return (0);
 }

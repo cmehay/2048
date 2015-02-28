@@ -6,7 +6,7 @@
 #    By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/17 16:46:09 by cmehay            #+#    #+#              #
-#    Updated: 2015/02/28 18:37:24 by sbethoua         ###   ########.fr        #
+#    Updated: 2015/02/28 19:11:45 by sbethoua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ HEADERFILES = ft_2048.h
 SRCSDIR = ./
 SRCS = $(addprefix $(SRCSDIR), $(SRCSFILES))
 SRCSFILES = main.c ncurshit.c boucle.c game_event.c inputs.c square_display.c \
-			debug.c colors.c errors.c
+			debug.c colors.c errors.c win_loose.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = $(LIBFT_DIR)libft.a
 

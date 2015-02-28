@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 19:09:23 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 19:12:31 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 enum e_const
 {
-    WIN_VALUE = 2048;
+    WIN_VALUE = 2048
 };
 
 typedef enum    e_way
@@ -79,5 +79,10 @@ void	game_error_handle(int argc, char **argv, char **envp);
 int		output(void);
 void	win_draw(t_game *game);
 void	square_display(t_game *game, t_size *size, int y, int x);
+
+void    you_win(t_game *game);
+void    you_loose(void);
+
+
 
 #endif
