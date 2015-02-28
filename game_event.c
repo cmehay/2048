@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:09:03 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 15:46:25 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 16:45:10 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int add_square(t_game *game, int y, int x)
     {
         game->game[y][x].val = (rand() % 2) ? 2 : 4;
         game->flag = TRUE;
-        return FALSE;
+        return (FALSE);
     }
-    return TRUE;
+    return (TRUE);
 }
 
 int check_game(t_game *game, int y, int x)
@@ -49,5 +49,11 @@ int check_game(t_game *game, int y, int x)
         game->win = TRUE;
         game->win_state = TRUE;
     }
+    return (FALSE);
+}
+
+int reset_merged(t_game *game, int y, int x)
+{
+    game->game[y][x].merged = FALSE;
     return (FALSE);
 }

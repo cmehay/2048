@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 16:50:47 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 17:25:33 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@
 
 enum e_const
 {
-    WIN_VALUE = 2048
+    WIN_VALUE = 32
 };
+
+typedef enum    e_way
+{
+    FORWARD,
+    BACKWARD
+}               t_way;
 
 typedef struct  s_size
 {
@@ -49,22 +55,26 @@ typedef struct s_game
     int         win_state;
 	int			powers[NB_POWERS];
 	int			colors[NB_POWERS];
+    int         has_move;
 }               t_game;
 
-void win_draw(t_game *game);
+void	win_draw(t_game *game);
+void	game_powers_colors_init(t_game *game);
 
-int play_up(t_game *game, int y, int x);
-int play_down(t_game *game, int y, int x);
-int play_left(t_game *game, int y, int x);
-int play_right(t_game *game, int y, int x);
+int		play_up(t_game *game, int y, int x);
+int		play_down(t_game *game, int y, int x);
+int		play_left(t_game *game, int y, int x);
+int		play_right(t_game *game, int y, int x);
 
-void boucle(t_game *game, int (*f)(t_game*, int y, int x));
+void	boucle(t_game *game, int (*f)(t_game*, int y, int x), t_way way);
 
-int add_square(t_game *game, int y, int x);
-int check_game(t_game *game, int y, int x);
+int		add_square(t_game *game, int y, int x);
+int		check_game(t_game *game, int y, int x);
+
+int		reset_merged(t_game *game, int y, int x);
 
 //debug
-int output(void);
+int		output(void);
 void	win_draw(t_game *game);
 void	square_display(t_game *game, t_size *size, int y, int x);
 

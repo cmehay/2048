@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 15:37:44 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 17:07:24 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,23 +53,26 @@ static void key_input(t_game *game)
 {
     int inp;
     keypad(stdscr, TRUE);
-    boucle(game, add_square);
-    boucle(game, add_square);
+    boucle(game, add_square, FORWARD);
+    boucle(game, add_square, FORWARD);
     win_draw(game);
     while((inp = getch()) != 27)
     {
+        game->has_move = 0;
+        boucle(game, reset_merged, FORWARD);
         if (inp == KEY_UP)
-            boucle(game, play_up);
+            boucle(game, play_up, FORWARD);
         if (inp == KEY_DOWN)
-            boucle(game, play_down);
+            boucle(game, play_down, BACKWARD);
         if (inp == KEY_LEFT)
-            boucle(game, play_left);
+            boucle(game, play_left, FORWARD);
         if (inp == KEY_RIGHT)
-            boucle(game, play_right);
-        boucle(game, check_game);
+            boucle(game, play_right, BACKWARD);
+        boucle(game, check_game, BACKWARD);
         if (game->flag)
             break ;
-        boucle(game, add_square);
+        if (game->has_move)
+            boucle(game, add_square, FORWARD);
         win_draw(game);
     }
 }
@@ -85,6 +88,7 @@ int main(void)
     noecho();
     init_game(&game);
 	start_color();
+	game_powers_colors_init(&game);
     refresh();
     signal_handle();
     win_draw(&game);
