@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 22:18:36 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 23:59:19 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@
 # include <limits.h>
 # include <unistd.h>
 
-# define GRID_SIZE 4
-
 enum e_const
 {
-    WIN_VALUE = 2048
+    WIN_VALUE = 32,
+    MAX_GRID = 5
 };
 
 typedef enum    e_way
@@ -48,8 +47,9 @@ typedef struct  s_square
 
 typedef struct s_game
 {
-    t_square    	game[GRID_SIZE][GRID_SIZE];
+    t_square    	game[MAX_GRID][MAX_GRID];
 	unsigned int	score;
+    int             game_mode;
     int         	flag;
     int         	win;
     int         	win_state;

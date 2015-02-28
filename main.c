@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 22:19:48 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 23:55:39 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ static void init_game(t_game *game)
     int y;
     int x;
 
-    y = GRID_SIZE;
+    game->game_mode = 5;
+    y = game->game_mode;
     while (y--)
     {
-        x = GRID_SIZE;
+        x = game->game_mode;
         while (x--)
         {
             game->game[y][x].win = NULL;

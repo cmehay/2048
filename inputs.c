@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:25:28 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 21:18:20 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 23:51:10 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int play_up(t_game *game, int y, int x)
 
 int play_down(t_game *game, int y, int x)
 {
-    if (y < GRID_SIZE - 1)
+    if (y < game->game_mode - 1)
     {
         if (game->game[y][x].val)
         {
@@ -98,7 +98,7 @@ int play_left(t_game *game, int y, int x)
 
 int play_right(t_game *game, int y, int x)
 {
-    if (x < GRID_SIZE - 1)
+    if (x < game->game_mode - 1)
     {
         if (game->game[y][x].val)
         {

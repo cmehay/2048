@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:09:03 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 19:00:50 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 23:56:35 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int add_square(t_game *game, int y, int x)
 
     if (game->flag || game->game[y][x].val)
         return (FALSE);
-    random = rand() % (GRID_SIZE * GRID_SIZE);
+    random = rand() % (game->game_mode * game->game_mode);
     if (!random)
     {
         game->game[y][x].val = (rand() % 2) ? 2 : 4;
@@ -30,7 +30,7 @@ int add_square(t_game *game, int y, int x)
 
 int check_game(t_game *game, int y, int x)
 {
-    if (y == 3 && x == 3)
+    if (y == game->game_mode - 1 && x == game->game_mode - 1)
         game->flag = TRUE;
     if (!game->game[y][x].val)
         game->flag = FALSE;

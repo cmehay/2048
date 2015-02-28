@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 11:12:46 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 16:25:32 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 23:51:13 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void boucle(t_game *game, int (*f)(t_game*, int y, int x), t_way way)
     while (flag)
     {
         flag = FALSE;
-        y = (way == FORWARD) ? -1 : GRID_SIZE;
-        while (((way == FORWARD) && ++y < GRID_SIZE) || ((way == BACKWARD) && y--))
+        y = (way == FORWARD) ? -1 : game->game_mode;
+        while (((way == FORWARD) && ++y < game->game_mode) || ((way == BACKWARD) && y--))
         {
-            x = (way == FORWARD) ? -1 : GRID_SIZE;
-            while (((way == FORWARD) && ++x < GRID_SIZE) || ((way == BACKWARD) && x--))
+            x = (way == FORWARD) ? -1 : game->game_mode;
+            while (((way == FORWARD) && ++x < game->game_mode) || ((way == BACKWARD) && x--))
                 flag += f(game, y, x);
         }
         if (game->flag)

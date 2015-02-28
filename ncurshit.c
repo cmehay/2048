@@ -6,16 +6,16 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:11:16 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 21:10:15 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 23:50:38 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-static void get_square_size(t_size *size)
+static void get_square_size(t_size *size, t_game *game)
 {
-    size->heigth = (LINES - 1) / GRID_SIZE;
-    size->width = (COLS) / GRID_SIZE;
+    size->heigth = (LINES - 1) / game->game_mode;
+    size->width = (COLS) / game->game_mode;
 }
 
 static void square_del(WINDOW *square)
@@ -50,11 +50,11 @@ void win_draw(t_game *game)
     int     y;
     int     x;
 
-    get_square_size(&size);
-    y = GRID_SIZE;
+    get_square_size(&size, game);
+    y = game->game_mode;
     while (y--)
     {
-        x = GRID_SIZE;
+        x = game->game_mode;
         while (x--)
             square_draw(game, &size, y, x);
     }
