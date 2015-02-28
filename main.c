@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 19:10:32 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 22:01:59 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,12 @@ int main(int argc, char **argv, char **envp)
     win_draw(&game);
     key_input(&game);
     if (game.flag)
-        you_loose();
+	{
+		if (game.win)
+			game_score_end_display(&game);
+		else
+			you_loose();
+	}
     endwin();
     return (0);
 }

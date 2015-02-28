@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 17:45:03 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 21:35:48 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 22:11:10 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	you_win(t_game *game)
 	wbkgd(win, COLOR_PAIR(120));
 	mvwprintw(win, 2, 2, "%s", msg);
 	wrefresh(win);
+	delwin(win);
 	while(getch() != 27)
 		;
 }
@@ -43,6 +44,7 @@ void	you_loose(void)
 	wbkgd(win, COLOR_PAIR(121));
 	mvwprintw(win, 2, 2, "%s", msg);
 	wrefresh(win);
+	delwin(win);
 	while(getch() != 27)
 		;
 }

@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 21:36:37 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 22:09:36 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ void	square_display(t_game *game, t_size *size, int y, int x);
 void    you_win(t_game *game);
 void    you_loose(void);
 void	game_score_display(t_game *game);
+void	game_score_end_display(t_game *game);
 
 #endif
