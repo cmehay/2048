@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 19:25:20 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:36:37 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 enum e_const
 {
-    WIN_VALUE = 8
+    WIN_VALUE = 2048
 };
 
 typedef enum    e_way
@@ -49,14 +49,14 @@ typedef struct  s_square
 
 typedef struct s_game
 {
-    t_square    game[GRID_SIZE][GRID_SIZE];
-    int         score;
-    int         flag;
-    int         win;
-    int         win_state;
-	int			powers[NB_POWERS];
-	int			colors[NB_POWERS];
-    int         has_move;
+    t_square    	game[GRID_SIZE][GRID_SIZE];
+	unsigned int	score;
+    int         	flag;
+    int         	win;
+    int         	win_state;
+	int				powers[NB_POWERS];
+	int				colors[NB_POWERS];
+    int         	has_move;
 }               t_game;
 
 void	win_draw(t_game *game);
@@ -82,5 +82,6 @@ void	square_display(t_game *game, t_size *size, int y, int x);
 
 void    you_win(t_game *game);
 void    you_loose(void);
+void	game_score_display(t_game *game);
 
 #endif

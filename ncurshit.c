@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:11:16 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 19:11:00 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 21:10:15 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ void win_draw(t_game *game)
         while (x--)
             square_draw(game, &size, y, x);
     }
-
+	game_score_display(game);
 }
