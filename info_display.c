@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   info_display.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 21:03:47 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/02/28 22:10:55 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 00:26:52 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	game_score_display(t_game *game)
 
 	w_info = newwin(5, 20, (LINES - 1), 0);
 	mvwprintw(w_info, 0, 0, "%s%d", "Score: ", game->score);
-    wrefresh(w_info);
+	wrefresh(w_info);
 	delwin(w_info);
 }
 
 void	game_score_end_display(t_game *game)
 {
-	WINDOW *win;
-	char msg[] = "You won. Your score is: ";
+	WINDOW	*win;
+	char	msg[] = "You won. Your score is: ";
 
 	win_draw(game);
 	win = newwin(5, COLS / 2, LINES / 2 - (LINES / 4),

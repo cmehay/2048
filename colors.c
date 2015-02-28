@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 16:04:54 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/02/28 22:19:02 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 00:25:59 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-static void	_game_powers_colors_init(void)
+static void	game_powers_colors_init(void)
 {
 	init_color(100, 150, 0, 0);
 	init_color(101, 0, 150, 0);
@@ -56,5 +56,5 @@ void		game_powers_colors_init(t_game *game)
 		clr_idx++;
 		i++;
 	}
-	_game_powers_colors_init();
+	game_powers_colors_init();
 }
