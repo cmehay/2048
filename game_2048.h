@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 14:38:16 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 16:49:19 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@
 
 enum e_const
 {
-    WIN_VALUE = 2048
+    WIN_VALUE = 32
 };
+
+typedef enum    e_way
+{
+    FORWARD,
+    BACKWARD
+}               t_way;
 
 typedef struct  s_size
 {
@@ -46,6 +52,7 @@ typedef struct s_game
     int         flag;
     int         win;
     int         win_state;
+    int         has_move;
 }               t_game;
 
 void win_draw(t_game *game);
@@ -55,10 +62,12 @@ int play_down(t_game *game, int y, int x);
 int play_left(t_game *game, int y, int x);
 int play_right(t_game *game, int y, int x);
 
-void boucle(t_game *game, int (*f)(t_game*, int y, int x));
+void boucle(t_game *game, int (*f)(t_game*, int y, int x), t_way way);
 
 int add_square(t_game *game, int y, int x);
 int check_game(t_game *game, int y, int x);
+
+int reset_merged(t_game *game, int y, int x);
 
 //debug
 int output(void);

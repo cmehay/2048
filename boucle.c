@@ -6,13 +6,13 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 11:12:46 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 12:27:56 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 16:25:32 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-void boucle(t_game *game, int (*f)(t_game*, int y, int x))
+void boucle(t_game *game, int (*f)(t_game*, int y, int x), t_way way)
 {
     int y;
     int x;
@@ -23,11 +23,11 @@ void boucle(t_game *game, int (*f)(t_game*, int y, int x))
     while (flag)
     {
         flag = FALSE;
-        y = GRID_SIZE;
-        while (y--)
+        y = (way == FORWARD) ? -1 : GRID_SIZE;
+        while (((way == FORWARD) && ++y < GRID_SIZE) || ((way == BACKWARD) && y--))
         {
-            x = GRID_SIZE;
-            while (x--)
+            x = (way == FORWARD) ? -1 : GRID_SIZE;
+            while (((way == FORWARD) && ++x < GRID_SIZE) || ((way == BACKWARD) && x--))
                 flag += f(game, y, x);
         }
         if (game->flag)
