@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 00:38:33 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 14:11:58 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/libft.h"
 # include <ncurses.h>
 # include <signal.h>
+# include <time.h>
 
 # define GRID_SIZE 4
 
@@ -39,12 +40,26 @@ typedef struct  s_square
 
 typedef struct s_game
 {
-    WINDOW      *win;
-    t_square    game[4][4];
+    t_square    game[GRID_SIZE][GRID_SIZE];
     int         score;
+    int         flag;
+    int         win;
+    int         win_state;
 }               t_game;
 
 void win_draw(t_game *game);
 
+int play_up(t_game *game, int y, int x);
+int play_down(t_game *game, int y, int x);
+int play_left(t_game *game, int y, int x);
+int play_right(t_game *game, int y, int x);
+
+void boucle(t_game *game, int (*f)(t_game*, int y, int x));
+
+int add_square(t_game *game, int y, int x);
+int check_game(t_game *game, int y, int x);
+
+//debug
+int output(void);
 
 #endif

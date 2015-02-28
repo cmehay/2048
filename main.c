@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 07:51:33 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 14:23:16 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ static void init_game(t_game *game)
         while (x--)
         {
             game->game[y][x].win = NULL;
-            game->game[y][x].val = x + y;
+            game->game[y][x].val = 0;
             game->game[y][x].merged = (t_bool)FALSE;
         }
     }
+    game->win_state = 0;
+    game->win = 0;
     game->score = 0;
 }
 
@@ -47,11 +49,37 @@ static void signal_handle(void)
     signal(SIGWINCH, resize_handle);
 }
 
+static void key_input(t_game *game)
+{
+    int inp;
+    keypad(stdscr, TRUE);
+    boucle(game, add_square);
+    boucle(game, add_square);
+    win_draw(game);
+    while((inp = getch()) != 27)
+    {
+        if (inp == KEY_UP)
+            boucle(game, play_up);
+        if (inp == KEY_DOWN)
+            boucle(game, play_down);
+        if (inp == KEY_LEFT)
+            boucle(game, play_left);
+        if (inp == KEY_RIGHT)
+            boucle(game, play_right);
+        boucle(game, check_game);
+        if (game->flag)
+            break ;
+        boucle(game, add_square);
+        win_draw(game);
+    }
+}
+
 int main(void)
 {
     t_game game;
 
     g_game = &game;
+    srand(time(NULL));
     initscr();
     cbreak();
     noecho();
@@ -59,9 +87,7 @@ int main(void)
     refresh();
     signal_handle();
     win_draw(&game);
-    keypad(stdscr, TRUE);
-    while(getch() != 27)
-        ;
+    key_input(&game);
     endwin();
     return 0;
 }
