@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:25:28 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 17:27:02 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 19:19:03 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int play_up(t_game *game, int y, int x)
                 game->game[y - 1][x].merged = TRUE;
                 game->game[y][x].val = 0;
                 game->has_move = TRUE;
+				//TODO Calculate score
                 return (TRUE);
             }
         }

@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 14:04:17 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 14:10:48 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 19:30:45 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int output(void)
 
 	if (fd > 0)
 		return fd;
-	fd = open("debug", O_CREAT | O_RDWR);
+	fd = open("debug.txt", O_RDWR|O_CREAT, 0666);
 	return fd;
 }
