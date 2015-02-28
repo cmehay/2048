@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 11:16:38 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 13:58:00 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/libft.h"
 # include <ncurses.h>
 # include <signal.h>
+# include <limits.h>
 
 # define GRID_SIZE 4
 
