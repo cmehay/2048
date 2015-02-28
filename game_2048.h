@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 14:11:58 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 14:38:16 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <ncurses.h>
 # include <signal.h>
 # include <time.h>
+# include <limits.h>
 
 # define GRID_SIZE 4
 
@@ -61,5 +62,7 @@ int check_game(t_game *game, int y, int x);
 
 //debug
 int output(void);
+void	win_draw(t_game *game);
+void	square_display(t_game *game, t_size *size, int y, int x);
 
 #endif

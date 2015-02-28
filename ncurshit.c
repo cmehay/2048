@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:11:16 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 14:22:34 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 14:37:38 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void square_draw(t_game *game, t_size *size, int y, int x)
     {
         if (game->game[y][x].merged)
             wattron(game->game[y][x].win, A_BOLD);
-        mvwprintw(game->game[y][x].win, 2, 2, "%d", game->game[y][x].val);
+		square_display(game, size, y, x);
     }
     wrefresh(game->game[y][x].win);
 }

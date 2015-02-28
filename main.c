@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 14:23:16 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 14:38:40 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int main(void)
     cbreak();
     noecho();
     init_game(&game);
+	start_color();
     refresh();
     signal_handle();
     win_draw(&game);
