@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 12:09:03 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 18:45:26 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 19:00:50 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int check_game(t_game *game, int y, int x)
     }
     if (game->game[y][x].val == WIN_VALUE && !game->win_state)
     {
-        you_win();
+        you_win(game);
         game->win = TRUE;
         game->win_state = TRUE;
     }
