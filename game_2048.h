@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 00:38:33 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 11:16:38 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_game
     int         score;
 }               t_game;
 
-void win_draw(t_game *game);
-
+void	win_draw(t_game *game);
+void	square_display(t_game *game, t_size *size, int y, int x);
 
 #endif

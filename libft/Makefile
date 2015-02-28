@@ -6,7 +6,7 @@
 #    By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/19 15:09:23 by cmehay            #+#    #+#              #
-#    Updated: 2014/03/12 15:00:17 by cmehay           ###   ########.fr        #
+#    Updated: 2015/02/28 10:54:02 by sbethoua         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -26,7 +26,7 @@ SRC = ft_memset.c ft_putchar.c ft_putstr.c ft_bzero.c ft_putchar_fd.c \
 	ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
 	ft_strsplit.c ft_strcpy.c ft_strncpy.c ft_itoa.c get_next_line.c \
 	mem_lst.c cool_itoa.c cool_next_line.c ft_arraydel.c ft_strtest.c \
-	ft_strrep.c ft_higher.c ft_lower.c
+	ft_strrep.c ft_higher.c ft_lower.c ft_intlen.c
 SRCFILES = $(addprefix $(SRCDIR)/, $(SRC))
 OBJ = $(SRC:.c=.o)
 CC = clang

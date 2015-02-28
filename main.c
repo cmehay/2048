@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 07:51:33 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 11:19:22 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void init_game(t_game *game)
         while (x--)
         {
             game->game[y][x].win = NULL;
-            game->game[y][x].val = x + y;
+            game->game[y][x].val = (x + y) * 2 * 2 * 2;
             game->game[y][x].merged = (t_bool)FALSE;
         }
     }
