@@ -6,13 +6,13 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 16:04:54 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 00:25:59 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/03/01 00:38:35 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-static void	game_powers_colors_init(void)
+static void	_game_powers_colors_init(void)
 {
 	init_color(100, 150, 0, 0);
 	init_color(101, 0, 150, 0);
@@ -56,5 +56,5 @@ void		game_powers_colors_init(t_game *game)
 		clr_idx++;
 		i++;
 	}
-	game_powers_colors_init();
+	_game_powers_colors_init();
 }
