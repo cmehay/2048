@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 16:04:54 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/02/28 17:58:28 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 22:19:02 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void		game_powers_colors_init(t_game *game)
 
 	game->powers[0] = 2;
 	i = 1;
-	while (i < NB_POWERS)
+	while (i < game->nb_powers)
 	{
 		game->powers[i] = game->powers[i - 1] * 2;
 		i++;
 	}
 	clr_idx = 100;
 	i = 0;
-	while (i < NB_POWERS)
+	while (i < game->nb_powers)
 	{
 		game->colors[i] = clr_idx;;
 		clr_idx++;

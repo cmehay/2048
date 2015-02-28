@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 22:01:59 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 22:19:48 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void init_game(t_game *game)
     game->win_state = 0;
     game->win = 0;
     game->score = 0;
+	game->nb_powers = 20;
 }
 
 static void resize_handle(int sig)

@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 11:14:05 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/02/28 21:56:51 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 22:19:17 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	square_get_color(t_game *game, int value)
 	int	i;
 
 	i = 0;
-	while (i < NB_POWERS)
+	while (i < game->nb_powers)
 	{
 		if (value == game->powers[i])
 			return (game->colors[i]);

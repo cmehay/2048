@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 22:09:36 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 22:18:36 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <unistd.h>
 
 # define GRID_SIZE 4
-# define NB_POWERS 20
 
 enum e_const
 {
@@ -54,8 +53,9 @@ typedef struct s_game
     int         	flag;
     int         	win;
     int         	win_state;
-	int				powers[NB_POWERS];
-	int				colors[NB_POWERS];
+	int				nb_powers;
+	int				powers[20];
+	int				colors[20];
     int         	has_move;
 }               t_game;
 
