@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 16:05:29 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 11:02:15 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 11:55:12 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int		ft_higher_idx(int *array, int len);
 int		ft_lower(int *array, int len);
 int		ft_lower_idx(int *array, int len);
 size_t	ft_intlen(const int nb_to_count);
+int		ft_ispoweroftwo(unsigned int x);
 
 /*
 ** mem_lst.c
