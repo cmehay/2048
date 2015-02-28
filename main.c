@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 17:07:24 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 18:43:59 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,18 @@ static void key_input(t_game *game)
     }
 }
 
-int main(void)
+int main(int argc, char **argv, char **envp)
 {
     t_game game;
 
+	game_error_handle(argc, argv, envp);
     g_game = &game;
     srand(time(NULL));
     initscr();
     cbreak();
     noecho();
     init_game(&game);
+	curs_set(0);
 	start_color();
 	game_powers_colors_init(&game);
     refresh();
@@ -94,5 +96,5 @@ int main(void)
     win_draw(&game);
     key_input(&game);
     endwin();
-    return 0;
+    return (0);
 }

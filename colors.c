@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 16:04:54 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/02/28 17:21:41 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 17:58:28 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ static void	_game_powers_colors_init(void)
 	init_color(104, 0, 300, 100);
 	init_color(105, 0, 0, 300);
 	init_color(106, 500, 0, 200);
-	init_color(107, 100, 500, 0);
+	init_color(107, 400, 400, 0);
 	init_color(108, 0, 200, 500);
 	init_color(109, 700, 200, 0);
-	init_color(200, 100, 700, 0);
-	init_color(201, 0, 500, 700);
-	init_color(202, 1000, 0, 0);
-	init_color(203, 0, 1000, 0);
-	init_color(204, 0, 0, 1000);
-	init_color(205, 100, 100, 0);
-	init_color(206, 100, 0, 100);
-	init_color(207, 0, 100, 100);
-	init_color(208, 500, 500, 0);
-	init_color(209, 500, 0, 500);
+	init_color(110, 100, 700, 0);
+	init_color(111, 0, 500, 700);
+	init_color(112, 1000, 0, 0);
+	init_color(113, 0, 1000, 0);
+	init_color(114, 0, 0, 1000);
+	init_color(115, 100, 100, 0);
+	init_color(116, 100, 0, 100);
+	init_color(117, 0, 100, 100);
+	init_color(118, 500, 500, 0);
+	init_color(119, 500, 0, 500);
 }
 
 void		game_powers_colors_init(t_game *game)
@@ -45,7 +45,7 @@ void		game_powers_colors_init(t_game *game)
 	i = 1;
 	while (i < NB_POWERS)
 	{
-		game->powers[i] = 1 << i;
+		game->powers[i] = game->powers[i - 1] * 2;
 		i++;
 	}
 	clr_idx = 100;

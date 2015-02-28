@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 11:14:05 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/02/28 17:12:18 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 18:24:08 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@ static int	square_get_color(t_game *game, int value)
 	i = 0;
 	while (i < NB_POWERS)
 	{
-		//ft_putnbr_fd(value, output());
-		//ft_putchar_fd('-', output());
-		//ft_putnbr_fd(game->powers[i], output());
-		//ft_putchar_fd('\n', output());
 		if (value == game->powers[i])
 			return (game->colors[i]);
+		// DEBUG BEGIN
+		ft_putnbr_fd(game->colors[i], output());
+		ft_putchar_fd('-', output());
+		ft_putnbr_fd(game->powers[i], output());
+		ft_putchar_fd('\n', output());
+		// DEBUG END
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 static void	square_color(t_game *game, WINDOW *win, int value)

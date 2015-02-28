@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 17:25:33 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 19:09:23 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 # include <signal.h>
 # include <time.h>
 # include <limits.h>
+# include <unistd.h>
 
 # define GRID_SIZE 4
 # define NB_POWERS 20
 
 enum e_const
 {
-    WIN_VALUE = 32
+    WIN_VALUE = 2048;
 };
 
 typedef enum    e_way
@@ -72,6 +73,7 @@ int		add_square(t_game *game, int y, int x);
 int		check_game(t_game *game, int y, int x);
 
 int		reset_merged(t_game *game, int y, int x);
+void	game_error_handle(int argc, char **argv, char **envp);
 
 //debug
 int		output(void);
