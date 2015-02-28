@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 17:45:03 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 19:02:33 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 20:35:04 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void	you_loose(void)
 	win = newwin(5, COLS / 2, LINES / 2 - (LINES / 4),
 		COLS / 2 - (COLS / 4));
 	box(win, 0 , 0);
-	mvwprintw(win, ((LINES / 4) / 2) - (ft_strlen(msg) / 2) , 2, "%s", msg);
+	//
+	init_pair(120, COLOR_WHITE, COLOR_RED);
+	wbkgd(win, COLOR_PAIR(120));
+	//
+	mvwprintw(win, 2, 2, "%s", msg);
 	wrefresh(win);
 	while(getch() != 27)
 		;

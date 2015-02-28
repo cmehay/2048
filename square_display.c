@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 11:14:05 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/02/28 18:24:08 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/02/28 20:26:56 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ static int	square_get_color(t_game *game, int value)
 
 static void	square_color(t_game *game, WINDOW *win, int value)
 {
-	init_pair((value % COLORS), COLOR_WHITE, square_get_color(game, value));
-	wbkgd(win, COLOR_PAIR(value % COLORS));
+	int	color_idx;
+
+	if ((color_idx = square_get_color(game, value)))
+		init_pair(color_idx, COLOR_WHITE, color_idx);
+		wbkgd(win, COLOR_PAIR(color_idx));
 }
 
 void		square_display(t_game *game, t_size *size, int y, int x)
