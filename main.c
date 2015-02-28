@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/02/28 00:48:27 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/02/28 07:51:33 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int main(void)
     g_game = &game;
     initscr();
     cbreak();
+    noecho();
     init_game(&game);
+    refresh();
     signal_handle();
     win_draw(&game);
     keypad(stdscr, TRUE);
