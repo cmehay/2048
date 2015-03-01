@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 01:16:03 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/03/01 14:49:02 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		add_square(t_game *game, int y, int x);
 int		check_game(t_game *game, int y, int x);
 
 int		reset_merged(t_game *game, int y, int x);
-void	game_error_handle(int argc, char **argv, char **envp);
+int		game_error_handle(int argc, char **argv, char **envp);
 
 void	win_draw(t_game *game);
 void	square_display(t_game *game, t_size *size, int y, int x);

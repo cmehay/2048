@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 01:16:13 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/03/01 14:44:28 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,27 +84,29 @@ int			main(int argc, char **argv, char **envp)
 {
 	t_game	game;
 
-	game_error_handle(argc, argv, envp);
-	g_game = &game;
-	srand(time(NULL));
-	initscr();
-	cbreak();
-	noecho();
-	init_game(&game);
-	curs_set(0);
-	start_color();
-	game_powers_colors_init(&game);
-	refresh();
-	signal_handle();
-	win_draw(&game);
-	key_input(&game);
-	if (game.flag)
+	if (!game_error_handle(argc, argv, envp))
 	{
-		if (game.win)
-			game_score_end_display(&game);
-		else
-			you_loose();
+		g_game = &game;
+		srand(time(NULL));
+		initscr();
+		cbreak();
+		noecho();
+		init_game(&game);
+		curs_set(0);
+		start_color();
+		game_powers_colors_init(&game);
+		refresh();
+		signal_handle();
+		win_draw(&game);
+		key_input(&game);
+		if (game.flag)
+		{
+			if (game.win)
+				game_score_end_display(&game);
+			else
+				you_loose();
+		}
+		endwin();
 	}
-	endwin();
 	return (0);
 }
