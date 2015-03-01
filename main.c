@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 00:23:03 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/03/01 01:16:13 by cmehay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	init_game(t_game *game)
 	int	y;
 	int	x;
 
-	game->game_mode = 5;
+	game->game_mode = 4;
 	y = game->game_mode;
 	while (y--)
 	{
