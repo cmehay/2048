@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   menu.c                                             :+:      :+:    :+:   */
+/*   term_too_small.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/01 16:22:20 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 20:43:46 by sbethoua         ###   ########.fr       */
+/*   Created: 2015/03/01 20:36:24 by sbethoua          #+#    #+#             */
+/*   Updated: 2015/03/01 20:36:58 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-static int	game_menu_mode_choose(void)
+void	game_size_too_small_display(void)
 {
-	int	inp;
+	WINDOW	*w_error;
 
-	while ((inp = getch()) != G_KEY_ESC)
-	{
-		if (inp == G_KEY_EASY)
-			return (G_MODE_EASY);
-		if (inp == G_KEY_MEDIUM)
-			return (G_MODE_MEDIUM);
-		if (inp == G_KEY_HARD)
-			return (G_MODE_HARD);
-	}
-	return (0);
-}
-
-int			game_menu_mode(void)
-{
-	game_menu_mode_display();
-	return (game_menu_mode_choose());
+	w_error = newwin(LINES, COLS, (LINES / 2 - 1), (COLS / 2 - 10));
+	init_pair(123, COLOR_RED, 0);
+	wbkgd(w_error, COLOR_PAIR(123));
+	mvwprintw(w_error, 0, 0, "%s%s",
+			"Window is too small!", "\nPlease, resize it. :)");
+	wrefresh(w_error);
+	delwin(w_error);
 }

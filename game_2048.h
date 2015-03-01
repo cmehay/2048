@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 20:04:36 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 20:45:28 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	game_powers_colors_init(t_game *game);
 ** errors.c
 */
 int		game_error_handle(int argc, char **argv, char **envp);
-void	game_size_too_small_display(void);
 
 /*
 ** game_event.c
@@ -56,7 +55,7 @@ int		check_game(t_game *game, int y, int x);
 int		reset_merged(t_game *game, int y, int x);
 
 /*
-** game_event.c
+** info_display.c
 */
 void	game_score_display(t_game *game);
 void	game_score_end_display(t_game *game);
@@ -69,8 +68,12 @@ void	key_input(t_game *game);
 /*
 ** menu.c
 */
-void	game_menu_mode_display(void);
 int		game_menu_mode(void);
+
+/*
+** menu_display.c
+*/
+void	game_menu_mode_display(void);
 
 /*
 ** square_draw.c
@@ -83,9 +86,18 @@ void	win_draw(t_game *game);
 void	square_display(t_game *game, t_size *size, int y, int x);
 
 /*
-** win_loose.c
+** term_too_small.c
+*/
+void	game_size_too_small_display(void);
+
+/*
+** display_loose.c
+*/
+void	you_loose(void);
+
+/*
+** display_win.c
 */
 void	you_win(t_game *game);
-void	you_loose(void);
 
 #endif

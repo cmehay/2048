@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   menu.c                                             :+:      :+:    :+:   */
+/*   display_end.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/01 16:22:20 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 20:43:46 by sbethoua         ###   ########.fr       */
+/*   Created: 2015/03/01 20:45:41 by sbethoua          #+#    #+#             */
+/*   Updated: 2015/03/01 20:45:56 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-static int	game_menu_mode_choose(void)
+void	game_score_end_display(t_game *game)
 {
-	int	inp;
+	WINDOW	*win;
 
-	while ((inp = getch()) != G_KEY_ESC)
-	{
-		if (inp == G_KEY_EASY)
-			return (G_MODE_EASY);
-		if (inp == G_KEY_MEDIUM)
-			return (G_MODE_MEDIUM);
-		if (inp == G_KEY_HARD)
-			return (G_MODE_HARD);
-	}
-	return (0);
-}
-
-int			game_menu_mode(void)
-{
-	game_menu_mode_display();
-	return (game_menu_mode_choose());
+	win_draw(game);
+	win = newwin(5, COLS / 2, LINES / 2 - (LINES / 4),
+		COLS / 2 - (COLS / 4));
+	box(win, 0, 0);
+	init_color(122, 0, 0, 420);
+	init_pair(122, COLOR_WHITE, 122);
+	wbkgd(win, COLOR_PAIR(122));
+	mvwprintw(win, 2, 2, "%s%d", "You won. Your score is: ", game->score);
+	wrefresh(win);
+	delwin(win);
+	while (getch() != 27)
+		;
 }

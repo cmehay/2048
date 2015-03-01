@@ -18,8 +18,10 @@ LDFLAGS = -L $(LIBFT_DIR) -lft -lncurses
 HEADERFILES = game_2048.h game_2048_struct.h
 SRCSDIR = ./
 SRCS = $(addprefix $(SRCSDIR), $(SRCSFILES))
-SRCSFILES = main.c square_draw.c boucle.c game_event.c inputs.c square_display.c \
-			colors.c errors.c win_loose.c info_display.c menu.c
+SRCSFILES = main.c square_draw.c boucle.c game_event.c inputs.c \
+			square_display.c colors.c errors.c info_display.c menu.c \
+			term_too_small.c display_win.c display_loose.c menu_display.c \
+			display_end.c square_add.c game_check.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = $(LIBFT_DIR)libft.a
 

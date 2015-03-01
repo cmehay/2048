@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   menu.c                                             :+:      :+:    :+:   */
+/*   square_add.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/01 16:22:20 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 20:43:46 by sbethoua         ###   ########.fr       */
+/*   Created: 2015/03/01 20:47:39 by sbethoua          #+#    #+#             */
+/*   Updated: 2015/03/01 20:47:53 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-static int	game_menu_mode_choose(void)
+int	add_square(t_game *game, int y, int x)
 {
-	int	inp;
+	int	random;
 
-	while ((inp = getch()) != G_KEY_ESC)
+	if (game->flag || game->game[y][x].val)
+		return (FALSE);
+	random = rand() % (game->game_mode * game->game_mode);
+	if (!random)
 	{
-		if (inp == G_KEY_EASY)
-			return (G_MODE_EASY);
-		if (inp == G_KEY_MEDIUM)
-			return (G_MODE_MEDIUM);
-		if (inp == G_KEY_HARD)
-			return (G_MODE_HARD);
+		game->game[y][x].val = (rand() % 2) ? 2 : 4;
+		game->flag = TRUE;
+		return (FALSE);
 	}
-	return (0);
-}
-
-int			game_menu_mode(void)
-{
-	game_menu_mode_display();
-	return (game_menu_mode_choose());
+	return (TRUE);
 }

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   info_display.c                                     :+:      :+:    :+:   */
+/*   display_win.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 21:03:47 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 20:45:58 by sbethoua         ###   ########.fr       */
+/*   Created: 2015/02/28 17:45:03 by cmehay            #+#    #+#             */
+/*   Updated: 2015/03/01 20:40:46 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-void	game_score_display(t_game *game)
+void	you_win(t_game *game)
 {
-	WINDOW	*w_info;
+	WINDOW *win;
 
-	w_info = newwin(5, 20, (LINES - 1), 0);
-	mvwprintw(w_info, 0, 0, "%s%d", "Score: ", game->score);
-	wrefresh(w_info);
-	delwin(w_info);
+	win_draw(game);
+	win = newwin(5, COLS / 2, LINES / 2 - (LINES / 4),
+		COLS / 2 - (COLS / 4));
+	box(win, 0, 0);
+	init_color(120, 0, 420, 0);
+	init_pair(120, COLOR_WHITE, 120);
+	wbkgd(win, COLOR_PAIR(120));
+	mvwprintw(win, 2, 2, "%s", "You WIN! - Press esc to continue...");
+	wrefresh(win);
+	delwin(win);
+	while (getch() != 27)
+		;
 }
