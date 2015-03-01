@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 18:32:41 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 15:49:33 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:09:37 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void		game_size_too_small_display(void)
 {
 	WINDOW	*w_error;
 
-	w_error = newwin(LINES, COLS, (LINES / 2), (COLS / 2 - 10));
-	init_color(123, 420, 0, 0);
+	w_error = newwin(LINES, COLS, (LINES / 2 - 1), (COLS / 2 - 10));
 	init_pair(123, COLOR_RED, 0);
 	wbkgd(w_error, COLOR_PAIR(123));
 	mvwprintw(w_error, 0, 0, "%s%s",

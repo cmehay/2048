@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 15:39:02 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:18:26 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,22 @@
 # include <limits.h>
 # include <unistd.h>
 
-# define G_MIN_HEIGHT 17
-# define G_MIN_WIDTH 29
+# define G_MIN_HEIGHT 25
+# define G_MIN_WIDTH 30
+
+# define G_MODE_EASY 6
+# define G_MODE_MEDIUM 5
+# define G_MODE_HARD 4
+
+# define G_KEY_EASY '1'
+# define G_KEY_MEDIUM '2'
+# define G_KEY_HARD '3'
+# define G_KEY_ESC 27
 
 enum			e_const
 {
 	WIN_VALUE = 2048,
-	MAX_GRID = 5
+	MAX_GRID = 6
 };
 
 typedef enum	e_way
@@ -60,7 +69,11 @@ typedef struct	s_game
 	int				powers[20];
 	int				colors[20];
 	int				has_move;
+	t_bool			in_menu;
 }				t_game;
+
+int		game_menu_mode(void);
+void	game_menu_mode_display(void);
 
 void	win_draw(t_game *game);
 void	game_powers_colors_init(t_game *game);

@@ -19,7 +19,7 @@ HEADERFILES = game_2048.h
 SRCSDIR = ./
 SRCS = $(addprefix $(SRCSDIR), $(SRCSFILES))
 SRCSFILES = main.c ncurshit.c boucle.c game_event.c inputs.c square_display.c \
-			colors.c errors.c win_loose.c info_display.c
+			colors.c errors.c win_loose.c info_display.c menu.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = $(LIBFT_DIR)libft.a
 

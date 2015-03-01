@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 15:32:44 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 18:28:20 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 t_game *g_game;
 
-static void	init_game(t_game *game)
+static int	init_game(t_game *game)
 {
 	int	y;
 	int	x;
 
-	game->game_mode = 4;
+	game->in_menu = TRUE;
+	if (!(game->game_mode = game_menu_mode())) // IF 0 THEN Quit!
+		return (-1);
+	game->in_menu = FALSE;
 	y = game->game_mode;
 	while (y--)
 	{
@@ -35,6 +38,7 @@ static void	init_game(t_game *game)
 	game->win = 0;
 	game->score = 0;
 	game->nb_powers = 20;
+	return (0);
 }
 
 static void	resize_handle(int sig)
@@ -43,7 +47,10 @@ static void	resize_handle(int sig)
 	endwin();
 	refresh();
 	clear();
-	win_draw(g_game);
+	if (g_game->in_menu)
+		game_menu_mode_display();
+	else
+		win_draw(g_game);
 }
 
 static void	signal_handle(void)
@@ -55,11 +62,10 @@ static void	key_input(t_game *game)
 {
 	int	inp;
 
-	keypad(stdscr, TRUE);
 	boucle(game, add_square, FORWARD);
 	boucle(game, add_square, FORWARD);
 	win_draw(game);
-	while((inp = getch()) != 27)
+	while((inp = getch()) != G_KEY_ESC)
 	{
 		boucle(game, reset_merged, FORWARD);
 		if (inp == KEY_UP)
@@ -91,20 +97,24 @@ int			main(int argc, char **argv, char **envp)
 		initscr();
 		cbreak();
 		noecho();
-		init_game(&game);
 		curs_set(0);
 		start_color();
-		game_powers_colors_init(&game);
-		refresh();
 		signal_handle();
-		win_draw(&game);
-		key_input(&game);
-		if (game.flag)
+		keypad(stdscr, TRUE);
+		refresh();
+		if (init_game(&game) != -1)
 		{
-			if (game.win)
-				game_score_end_display(&game);
-			else
-				you_loose();
+			game_powers_colors_init(&game);
+			signal_handle();
+			win_draw(&game);
+			key_input(&game);
+			if (game.flag)
+			{
+				if (game.win)
+					game_score_end_display(&game);
+				else
+					you_loose();
+			}
 		}
 		use_default_colors();
 		endwin();
