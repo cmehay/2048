@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:11 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 14:49:02 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:39:02 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <time.h>
 # include <limits.h>
 # include <unistd.h>
+
+# define G_MIN_HEIGHT 17
+# define G_MIN_WIDTH 29
 
 enum			e_const
 {
@@ -74,6 +77,7 @@ int		check_game(t_game *game, int y, int x);
 
 int		reset_merged(t_game *game, int y, int x);
 int		game_error_handle(int argc, char **argv, char **envp);
+void	game_size_too_small_display(void);
 
 void	win_draw(t_game *game);
 void	square_display(t_game *game, t_size *size, int y, int x);

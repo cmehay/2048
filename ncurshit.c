@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:11:16 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 00:28:04 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/03/01 15:39:19 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void		win_draw(t_game *game)
 	int		y;
 	int		x;
 
+	if (LINES < G_MIN_HEIGHT || COLS < G_MIN_WIDTH)
+		return (game_size_too_small_display());
 	get_square_size(&size, game);
 	y = game->game_mode;
 	while (y--)
