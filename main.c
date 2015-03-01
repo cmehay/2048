@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 21:18:18 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 14:44:28 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:00:40 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int			main(int argc, char **argv, char **envp)
 			else
 				you_loose();
 		}
+		use_default_colors();
 		endwin();
 	}
 	return (0);
