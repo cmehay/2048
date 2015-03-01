@@ -6,7 +6,7 @@
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 21:03:47 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 00:26:52 by cmehay           ###   ########.fr       */
+/*   Updated: 2015/03/01 19:40:47 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,17 @@ void	game_score_display(t_game *game)
 void	game_score_end_display(t_game *game)
 {
 	WINDOW	*win;
-	char	msg[] = "You won. Your score is: ";
 
 	win_draw(game);
 	win = newwin(5, COLS / 2, LINES / 2 - (LINES / 4),
 		COLS / 2 - (COLS / 4));
-	box(win, 0 , 0);
+	box(win, 0, 0);
 	init_color(122, 0, 0, 420);
 	init_pair(122, COLOR_WHITE, 122);
 	wbkgd(win, COLOR_PAIR(122));
-	mvwprintw(win, 2, 2, "%s%d", msg, game->score);
+	mvwprintw(win, 2, 2, "%s%d", "You won. Your score is: ", game->score);
 	wrefresh(win);
 	delwin(win);
-	while(getch() != 27)
+	while (getch() != 27)
 		;
 }

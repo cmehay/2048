@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 16:22:20 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 18:28:04 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:42:12 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	game_menu_mode_choose(void)
 {
 	int	inp;
 
-	while((inp = getch()) != G_KEY_ESC)
+	while ((inp = getch()) != G_KEY_ESC)
 	{
 		if (inp == G_KEY_EASY)
 			return (G_MODE_EASY);
@@ -47,5 +47,5 @@ void		game_menu_mode_display(void)
 int			game_menu_mode(void)
 {
 	game_menu_mode_display();
-	return(game_menu_mode_choose());
+	return (game_menu_mode_choose());
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ncurshit.c                                         :+:      :+:    :+:   */
+/*   square_draw.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmehay <cmehay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:11:16 by cmehay            #+#    #+#             */
-/*   Updated: 2015/03/01 15:39:19 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 20:03:16 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	get_square_size(t_size *size, t_game *game)
 
 static void	square_del(WINDOW *square)
 {
-	wborder(square, ' ', ' ', ' ',' ',' ',' ',' ',' ');
+	wborder(square, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
 	wrefresh(square);
 	delwin(square);
 }
@@ -34,7 +34,7 @@ static void	square_draw(t_game *game, t_size *size, int y, int x)
 	pos_x = size->width * x;
 	square_del(game->game[y][x].win);
 	game->game[y][x].win = newwin(size->heigth, size->width, pos_y, pos_x);
-	box(game->game[y][x].win, 0 , 0);
+	box(game->game[y][x].win, 0, 0);
 	if (game->game[y][x].val)
 	{
 		if (game->game[y][x].merged)

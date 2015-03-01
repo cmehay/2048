@@ -6,7 +6,7 @@
 /*   By: sbethoua <sbethoua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 18:32:41 by sbethoua          #+#    #+#             */
-/*   Updated: 2015/03/01 18:09:37 by sbethoua         ###   ########.fr       */
+/*   Updated: 2015/03/01 19:38:14 by sbethoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int			game_error_handle(int argc, char **argv, char **envp)
 {
 	t_bool	error;
 
-	(void) argc;
-	(void) argv;
+	(void)argc;
+	(void)argv;
 	error = FALSE;
 	if (envp[0] == NULL)
 	{

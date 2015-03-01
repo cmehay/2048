@@ -15,10 +15,10 @@ CC = clang
 LIBFT_DIR = libft/
 CFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -L $(LIBFT_DIR) -lft -lncurses
-HEADERFILES = game_2048.h
+HEADERFILES = game_2048.h game_2048_struct.h
 SRCSDIR = ./
 SRCS = $(addprefix $(SRCSDIR), $(SRCSFILES))
-SRCSFILES = main.c ncurshit.c boucle.c game_event.c inputs.c square_display.c \
+SRCSFILES = main.c square_draw.c boucle.c game_event.c inputs.c square_display.c \
 			colors.c errors.c win_loose.c info_display.c menu.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = $(LIBFT_DIR)libft.a
